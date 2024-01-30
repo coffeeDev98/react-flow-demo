@@ -43,16 +43,17 @@ const FlowPlayground = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge[]>(initialEdges);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
 
+  // handle new edge connections between nodes
   const onConnect: OnConnect = useCallback(
     (params) =>
       setEdges((eds) => addEdge({ ...params, type: "smoothstep" }, eds)),
     [],
   );
 
+  // delete edge on drop functionality
   const onEdgeUpdateStart = useCallback(() => {
     edgeUpdateSuccessful.current = false;
   }, []);
-
   const onEdgeUpdate = useCallback(
     (oldEdge: Edge, newConnection: Connection) => {
       edgeUpdateSuccessful.current = true;
@@ -60,7 +61,6 @@ const FlowPlayground = () => {
     },
     [],
   );
-
   const onEdgeUpdateEnd = useCallback((_: any, edge: Edge) => {
     if (!edgeUpdateSuccessful.current) {
       setEdges((eds) => eds.filter((e) => e.id !== edge.id));
@@ -69,6 +69,7 @@ const FlowPlayground = () => {
     edgeUpdateSuccessful.current = true;
   }, []);
 
+  // handle edges rerouting when node is deleted
   const onNodesDelete: OnNodesDelete = useCallback(
     (deleted) => {
       setEdges(
@@ -83,7 +84,7 @@ const FlowPlayground = () => {
 
           const createdEdges = incoming.flatMap(({ id: source }) =>
             outgoing.map(({ id: target }) => ({
-              id: `${source}->${target}`,
+              id: `e${source}-${target}`,
               source,
               target,
             })),
@@ -96,11 +97,11 @@ const FlowPlayground = () => {
     [nodes, edges],
   );
 
+  // handle drag and drop creation from createPanel
   const onDragOver = useCallback((event: any) => {
     event.preventDefault();
     event.dataTransfer.dropEffect = "move";
   }, []);
-
   const onDrop = useCallback(
     (event: any) => {
       event.preventDefault();
