@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.react-flow__controls {
+  filter: invert(1);
+}
+.react-flow__edge-textbg {
+  fill: #0a1128;
+}
+.react-flow__edge-text {
+  fill: white;
+}
+.react-flow__minimap-node {
+  fill: #0077b6;
+}
