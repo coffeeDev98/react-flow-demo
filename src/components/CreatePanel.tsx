@@ -42,14 +42,14 @@ export default ({ className }: { className?: string }) => {
       </div> */}
       <div className="flex gap-2">
         <div
-          className="bg-[#034078] border border-[#001f54] rounded-md w-max p-2 text-white cursor-pointer hover:bg-accent"
+          className="bg-[#023e8a] border border-[#001f54] rounded-md w-max p-2 text-white cursor-pointer hover:bg-[#034078]"
           onDragStart={(event) => onDragStart(event, "custom", MODE.SINGLE)}
           draggable
         >
           Single Node
         </div>
         <div
-          className="bg-[#034078] border border-[#001f54] rounded-md w-max p-2 text-white cursor-pointer hover:bg-accent"
+          className="bg-[#023e8a] border border-[#001f54] rounded-md w-max p-2 text-white cursor-pointer hover:bg-[#034078]"
           onDragStart={(event) => onDragStart(event, "custom", MODE.BRANCH)}
           draggable
         >
