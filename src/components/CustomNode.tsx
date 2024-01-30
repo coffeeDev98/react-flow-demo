@@ -92,7 +92,7 @@ const CustomNode = ({ id, data, xPos, yPos }: NodeProps) => {
   return (
     <div className="relative w-32 h-14 border border-white text-white rounded-md flex justify-center items-center">
       <div
-        className="flex justify-center w-4/5 h-min text-sm"
+        className="flex justify-center w-4/5 min-h-[40px] h-min text-sm"
         onDoubleClick={() => {
           setEditMode(true);
         }}
