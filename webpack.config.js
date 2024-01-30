@@ -11,6 +11,12 @@ module.exports = {
   output: {
     path: __dirname + "/dist/",
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "public"),
+    },
+    port: 3000,
+  },
   resolve: {
     alias: {
       "@components": __dirname + "src/components",

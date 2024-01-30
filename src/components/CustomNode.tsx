@@ -113,15 +113,27 @@ const CustomNode = ({ id, data, xPos, yPos }: NodeProps) => {
         {data.mode === MODE.SINGLE && (
           <>
             <button onClick={onAddNode(MODE.SINGLE)}>
-              <Plus width={12} height={12} />
+              <Plus
+                width={12}
+                height={12}
+                className="hover:stroke-green-500 transition-all duration-200"
+              />
             </button>
             <button onClick={onAddNode(MODE.BRANCH)}>
-              <Split width={12} height={12} className="rotate-180" />
+              <Split
+                width={12}
+                height={12}
+                className="rotate-180 hover:stroke-sky-400 transition-all duration-200"
+              />
             </button>
           </>
         )}
         <button onClick={onDelete}>
-          <Trash width={12} height={12} />
+          <Trash
+            width={12}
+            height={12}
+            className="hover:stroke-red-600 transition-all duration-200"
+          />
         </button>
       </div>
       {!data.firstNode && <Handle type="target" position={Position.Top} />}
