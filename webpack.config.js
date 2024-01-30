@@ -15,6 +15,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "public"),
     },
+    allowedHosts: ["all"],
     port: 3000,
   },
   resolve: {
